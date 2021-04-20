@@ -3,27 +3,40 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0EE79309E2188D3747E308C9 /* Pods_TrackerTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 992689903A5C5B2C77C3A980 /* Pods_TrackerTest.framework */; };
+		310E9987262E9E4300C7BB99 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 310E9983262E974E00C7BB99 /* GoogleService-Info.plist */; };
+		310E998A262EA04E00C7BB99 /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 310E9989262EA04E00C7BB99 /* FirebaseManager.swift */; };
+		310E998D262EA67E00C7BB99 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 310E998C262EA67D00C7BB99 /* Helpers.swift */; };
 		31324FC2262980A000668FCD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31324FC1262980A000668FCD /* AppDelegate.swift */; };
 		31324FC4262980A000668FCD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31324FC3262980A000668FCD /* SceneDelegate.swift */; };
 		31324FC6262980A000668FCD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31324FC5262980A000668FCD /* ViewController.swift */; };
-		31324FC9262980A000668FCD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 31324FC7262980A000668FCD /* Main.storyboard */; };
 		31324FCB262980B100668FCD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 31324FCA262980B100668FCD /* Assets.xcassets */; };
 		31324FCE262980B100668FCD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 31324FCC262980B100668FCD /* LaunchScreen.storyboard */; };
+		31324FD92629882B00668FCD /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31324FD82629882B00668FCD /* LocationManager.swift */; };
+		31324FE3262E899200668FCD /* UserDefaultsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31324FE2262E899200668FCD /* UserDefaultsHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		162532258D6348DF759529E0 /* Pods-TrackerTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TrackerTest.debug.xcconfig"; path = "Target Support Files/Pods-TrackerTest/Pods-TrackerTest.debug.xcconfig"; sourceTree = "<group>"; };
+		310E9983262E974E00C7BB99 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		310E9989262EA04E00C7BB99 /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
+		310E998C262EA67D00C7BB99 /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 		31324FBE262980A000668FCD /* TrackerTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TrackerTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		31324FC1262980A000668FCD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		31324FC3262980A000668FCD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		31324FC5262980A000668FCD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		31324FC8262980A000668FCD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		31324FCA262980B100668FCD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		31324FCD262980B100668FCD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		31324FCF262980B100668FCD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		31324FD82629882B00668FCD /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		31324FDC262D512C00668FCD /* TrackerTest.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TrackerTest.entitlements; sourceTree = "<group>"; };
+		31324FE2262E899200668FCD /* UserDefaultsHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsHelper.swift; sourceTree = "<group>"; };
+		992689903A5C5B2C77C3A980 /* Pods_TrackerTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TrackerTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DE3675C4EF8CE74E013D6B06 /* Pods-TrackerTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TrackerTest.release.xcconfig"; path = "Target Support Files/Pods-TrackerTest/Pods-TrackerTest.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +44,38 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0EE79309E2188D3747E308C9 /* Pods_TrackerTest.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2D8AEC3D2F2AACA068A47130 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				162532258D6348DF759529E0 /* Pods-TrackerTest.debug.xcconfig */,
+				DE3675C4EF8CE74E013D6B06 /* Pods-TrackerTest.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		310E998F262EA84600C7BB99 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				31324FD82629882B00668FCD /* LocationManager.swift */,
+				310E9989262EA04E00C7BB99 /* FirebaseManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
 		31324FB5262980A000668FCD = {
 			isa = PBXGroup;
 			children = (
 				31324FC0262980A000668FCD /* TrackerTest */,
 				31324FBF262980A000668FCD /* Products */,
+				2D8AEC3D2F2AACA068A47130 /* Pods */,
+				8CDEAC199B013A8E8CDC9A99 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,15 +90,27 @@
 		31324FC0262980A000668FCD /* TrackerTest */ = {
 			isa = PBXGroup;
 			children = (
+				310E998F262EA84600C7BB99 /* Managers */,
+				31324FDC262D512C00668FCD /* TrackerTest.entitlements */,
 				31324FC1262980A000668FCD /* AppDelegate.swift */,
+				310E998C262EA67D00C7BB99 /* Helpers.swift */,
+				31324FE2262E899200668FCD /* UserDefaultsHelper.swift */,
 				31324FC3262980A000668FCD /* SceneDelegate.swift */,
 				31324FC5262980A000668FCD /* ViewController.swift */,
-				31324FC7262980A000668FCD /* Main.storyboard */,
+				310E9983262E974E00C7BB99 /* GoogleService-Info.plist */,
 				31324FCA262980B100668FCD /* Assets.xcassets */,
 				31324FCC262980B100668FCD /* LaunchScreen.storyboard */,
 				31324FCF262980B100668FCD /* Info.plist */,
 			);
 			path = TrackerTest;
+			sourceTree = "<group>";
+		};
+		8CDEAC199B013A8E8CDC9A99 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				992689903A5C5B2C77C3A980 /* Pods_TrackerTest.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,9 +120,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 31324FD2262980B100668FCD /* Build configuration list for PBXNativeTarget "TrackerTest" */;
 			buildPhases = (
+				A85F9E0777E3AD2140C43FF1 /* [CP] Check Pods Manifest.lock */,
 				31324FBA262980A000668FCD /* Sources */,
 				31324FBB262980A000668FCD /* Frameworks */,
 				31324FBC262980A000668FCD /* Resources */,
+				8E14D7BFB427CC2B1238FB98 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -126,17 +174,63 @@
 			files = (
 				31324FCE262980B100668FCD /* LaunchScreen.storyboard in Resources */,
 				31324FCB262980B100668FCD /* Assets.xcassets in Resources */,
-				31324FC9262980A000668FCD /* Main.storyboard in Resources */,
+				310E9987262E9E4300C7BB99 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		8E14D7BFB427CC2B1238FB98 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TrackerTest/Pods-TrackerTest-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TrackerTest/Pods-TrackerTest-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TrackerTest/Pods-TrackerTest-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A85F9E0777E3AD2140C43FF1 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TrackerTest-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		31324FBA262980A000668FCD /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				310E998A262EA04E00C7BB99 /* FirebaseManager.swift in Sources */,
+				310E998D262EA67E00C7BB99 /* Helpers.swift in Sources */,
+				31324FE3262E899200668FCD /* UserDefaultsHelper.swift in Sources */,
+				31324FD92629882B00668FCD /* LocationManager.swift in Sources */,
 				31324FC6262980A000668FCD /* ViewController.swift in Sources */,
 				31324FC2262980A000668FCD /* AppDelegate.swift in Sources */,
 				31324FC4262980A000668FCD /* SceneDelegate.swift in Sources */,
@@ -146,14 +240,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		31324FC7262980A000668FCD /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				31324FC8262980A000668FCD /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		31324FCC262980B100668FCD /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -283,9 +369,11 @@
 		};
 		31324FD3262980B100668FCD /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 162532258D6348DF759529E0 /* Pods-TrackerTest.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = TrackerTest/TrackerTest.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6H763A2399;
 				INFOPLIST_FILE = TrackerTest/Info.plist;
@@ -302,9 +390,11 @@
 		};
 		31324FD4262980B100668FCD /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DE3675C4EF8CE74E013D6B06 /* Pods-TrackerTest.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = TrackerTest/TrackerTest.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6H763A2399;
 				INFOPLIST_FILE = TrackerTest/Info.plist;

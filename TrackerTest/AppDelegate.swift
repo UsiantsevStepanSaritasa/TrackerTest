@@ -6,15 +6,60 @@
 //
 
 import UIKit
+import UserNotifications
+import CoreLocation
+import Firebase
+
+struct Location: Codable {
+    let location: String
+    let date: String
+}
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
-
+    let center = UNUserNotificationCenter.current()
+//    let locationManager = CLLocationManager()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        FirebaseApp.configure()
+        
+//        let db = Firestore.firestore()
+//        db.collection("cities").document("locations").updateData([
+//            "locations1": FieldValue.arrayUnion([
+//                "someLocation4",
+//                String(Date().timeIntervalSince1970)
+//            ])
+//        ]) { (error: Error?) in
+//            if let error = error {
+//                print("ERROR FIRESTORE: ", error.localizedDescription)
+//            } else {
+//                print("Successfully sent!")
+//            }
+//        }
+        let firebaseManager = FirebaseManager()
+        firebaseManager.sendNewLocationToFirestore(location: "testLocation")
+        
+        UserDefaults.standard.set("Application just LAUNCHED for \n TIME: \(Date())", forKey: "LaunchMessage")
+        registerForPushNotifications()
+        
+        let notificationOption = launchOptions?[.remoteNotification]
+        if let notification = notificationOption as? [String: AnyObject], let aps = notification["aps"] as? [String: AnyObject] {
+            print("APS is: \(aps)")
+        }
+        
+        guard let location = launchOptions?[UIApplication.LaunchOptionsKey.location] else { return true }
+        UserDefaults.standard.set("App has been awoken with loc: \(location) \n TIME: \(Date())", forKey: "NewLocation")
+        
+        
         return true
+    }
+    
+    func applicationWillEnterForeground(_ application: UIApplication) {
+        UserDefaults.standard.set("Application just got back from BACKGROUND for \n TIME: \(Date())", forKey: "backFromBackgroundMessage")
+    }
+    
+    func applicationDidEnterBackground(_ application: UIApplication) {
+        UserDefaults.standard.set("Application WENT to BACKGROUND for \n TIME: \(Date())", forKey: "backgroundMessage")
     }
 
     // MARK: UISceneSession Lifecycle
@@ -30,7 +75,54 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
     }
-
-
+    
+    func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
+        guard let location = launchOptions?[UIApplication.LaunchOptionsKey.location] else { return true }
+        UserDefaults.standard.set("App has been awoken with loc: \(location) \n TIME: \(Date())", forKey: "NewLocation")
+        
+        return true
+    }
+    
+    func registerForPushNotifications() {
+        UNUserNotificationCenter.current()
+            .requestAuthorization(options: [.alert, .sound, .badge]) { [weak self] granted, _ in
+                print("Permission granted: \(granted)")
+                guard granted else { return }
+                self?.getNotificationSettings()
+            }
+    }
+    
+    func getNotificationSettings() {
+        UNUserNotificationCenter.current().getNotificationSettings { settings in
+            print("Notification settings: \(settings)")
+            DispatchQueue.main.async {
+                UIApplication.shared.registerForRemoteNotifications()                
+            }
+        }
+    }
+    
+    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+        let tokenParts = deviceToken.map { data in String(format: "%02.2hhx", data) }
+        let token = tokenParts.joined()
+        print("Device Token: \(token)")
+    }
+    
+    func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
+        print("Failed to register: \(error)")
+    }
+    
+    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+        guard let aps = userInfo["aps"] as? [String: AnyObject] else {
+            print("Can't find aps in file")
+            return
+        }
+        print(aps)
+        
+        if aps["content-available"] as? Int == 1 {
+            print("Got silent PUSH")
+        } else {
+            print("Didn't get silent PUSH")
+        }
+    }
 }
 
