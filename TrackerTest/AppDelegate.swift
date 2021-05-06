@@ -10,56 +10,28 @@ import UserNotifications
 import CoreLocation
 import Firebase
 
-struct Location: Codable {
-    let location: String
-    let date: String
-}
-
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
     let center = UNUserNotificationCenter.current()
-//    let locationManager = CLLocationManager()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         FirebaseApp.configure()
+        LocationManager.shared.startMonitoringSignificant()
         
-//        let db = Firestore.firestore()
-//        db.collection("cities").document("locations").updateData([
-//            "locations1": FieldValue.arrayUnion([
-//                "someLocation4",
-//                String(Date().timeIntervalSince1970)
-//            ])
-//        ]) { (error: Error?) in
-//            if let error = error {
-//                print("ERROR FIRESTORE: ", error.localizedDescription)
-//            } else {
-//                print("Successfully sent!")
-//            }
-//        }
-        let firebaseManager = FirebaseManager()
-        firebaseManager.sendNewLocationToFirestore(location: "testLocation")
+        FirebaseManager.shared.sendNewLocationToFirestore(
+            location: "App is LAUNCHED at \n TIME: \(dateFormat(with: Date()))",
+            latitude: 0,
+            longitude: 0,
+            time: Date()) { result in
+        }
         
-        UserDefaults.standard.set("Application just LAUNCHED for \n TIME: \(Date())", forKey: "LaunchMessage")
         registerForPushNotifications()
         
         let notificationOption = launchOptions?[.remoteNotification]
         if let notification = notificationOption as? [String: AnyObject], let aps = notification["aps"] as? [String: AnyObject] {
-            print("APS is: \(aps)")
+//            print("APS is: \(aps)")
         }
-        
-        guard let location = launchOptions?[UIApplication.LaunchOptionsKey.location] else { return true }
-        UserDefaults.standard.set("App has been awoken with loc: \(location) \n TIME: \(Date())", forKey: "NewLocation")
-        
-        
         return true
-    }
-    
-    func applicationWillEnterForeground(_ application: UIApplication) {
-        UserDefaults.standard.set("Application just got back from BACKGROUND for \n TIME: \(Date())", forKey: "backFromBackgroundMessage")
-    }
-    
-    func applicationDidEnterBackground(_ application: UIApplication) {
-        UserDefaults.standard.set("Application WENT to BACKGROUND for \n TIME: \(Date())", forKey: "backgroundMessage")
     }
 
     // MARK: UISceneSession Lifecycle
@@ -86,7 +58,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func registerForPushNotifications() {
         UNUserNotificationCenter.current()
             .requestAuthorization(options: [.alert, .sound, .badge]) { [weak self] granted, _ in
-                print("Permission granted: \(granted)")
+//                print("Permission granted: \(granted)")
                 guard granted else { return }
                 self?.getNotificationSettings()
             }
@@ -94,7 +66,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func getNotificationSettings() {
         UNUserNotificationCenter.current().getNotificationSettings { settings in
-            print("Notification settings: \(settings)")
+//            print("Notification settings: \(settings)")
             DispatchQueue.main.async {
                 UIApplication.shared.registerForRemoteNotifications()                
             }
@@ -104,24 +76,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
         let tokenParts = deviceToken.map { data in String(format: "%02.2hhx", data) }
         let token = tokenParts.joined()
-        print("Device Token: \(token)")
+//        print("Device Token: \(token)")
     }
     
     func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
-        print("Failed to register: \(error)")
+//        print("Failed to register Notification: \(error)")
     }
     
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
         guard let aps = userInfo["aps"] as? [String: AnyObject] else {
-            print("Can't find aps in file")
+//            print("Can't find aps in file")
             return
         }
         print(aps)
         
         if aps["content-available"] as? Int == 1 {
-            print("Got silent PUSH")
+//            print("Got silent PUSH")
         } else {
-            print("Didn't get silent PUSH")
+//            print("Didn't get silent PUSH")
         }
     }
 }

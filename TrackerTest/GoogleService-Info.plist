@@ -3,21 +3,21 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>790849564630-1cqg1b587nd54j209lnpe5qblp0gmod5.apps.googleusercontent.com</string>
+	<string>340894091431-401fklq36idq12l4rbc0t07sns21vfud.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.790849564630-1cqg1b587nd54j209lnpe5qblp0gmod5</string>
+	<string>com.googleusercontent.apps.340894091431-401fklq36idq12l4rbc0t07sns21vfud</string>
 	<key>API_KEY</key>
-	<string>AIzaSyDHiKAMMXSMsl9LDvFlpY5-7b5CbVlVBWA</string>
+	<string>AIzaSyD_amHyP1hfdkiuqTARoxmZmmOz5kIaCQg</string>
 	<key>GCM_SENDER_ID</key>
-	<string>790849564630</string>
+	<string>340894091431</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
 	<string>com.saritasa.TrackerTest</string>
 	<key>PROJECT_ID</key>
-	<string>trackertest-8798f</string>
+	<string>trackertestnew-77038</string>
 	<key>STORAGE_BUCKET</key>
-	<string>trackertest-8798f.appspot.com</string>
+	<string>trackertestnew-77038.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -29,6 +29,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:790849564630:ios:2a2a346fda226fb68c7e77</string>
+	<string>1:340894091431:ios:60a9f1c7e1998e8b523382</string>
 </dict>
 </plist>
