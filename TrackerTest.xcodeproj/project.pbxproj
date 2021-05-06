@@ -8,33 +8,45 @@
 
 /* Begin PBXBuildFile section */
 		0EE79309E2188D3747E308C9 /* Pods_TrackerTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 992689903A5C5B2C77C3A980 /* Pods_TrackerTest.framework */; };
-		310E9987262E9E4300C7BB99 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 310E9983262E974E00C7BB99 /* GoogleService-Info.plist */; };
+		310B37A12632E94F00E739B9 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 310B37A02632E94F00E739B9 /* UIViewController+Extension.swift */; };
+		310B37A52632EF3C00E739B9 /* LocationData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 310B37A42632EF3C00E739B9 /* LocationData.swift */; };
+		310B37A8263673B400E739B9 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 310B37A7263673B400E739B9 /* TabBarController.swift */; };
+		310B37AC2636745F00E739B9 /* BluetoothViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 310B37AB2636745F00E739B9 /* BluetoothViewController.swift */; };
+		310B37AF2636746D00E739B9 /* HealthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 310B37AE2636746D00E739B9 /* HealthViewController.swift */; };
 		310E998A262EA04E00C7BB99 /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 310E9989262EA04E00C7BB99 /* FirebaseManager.swift */; };
 		310E998D262EA67E00C7BB99 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 310E998C262EA67D00C7BB99 /* Helpers.swift */; };
 		31324FC2262980A000668FCD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31324FC1262980A000668FCD /* AppDelegate.swift */; };
 		31324FC4262980A000668FCD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31324FC3262980A000668FCD /* SceneDelegate.swift */; };
-		31324FC6262980A000668FCD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31324FC5262980A000668FCD /* ViewController.swift */; };
+		31324FC6262980A000668FCD /* LocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31324FC5262980A000668FCD /* LocationViewController.swift */; };
 		31324FCB262980B100668FCD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 31324FCA262980B100668FCD /* Assets.xcassets */; };
 		31324FCE262980B100668FCD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 31324FCC262980B100668FCD /* LaunchScreen.storyboard */; };
 		31324FD92629882B00668FCD /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31324FD82629882B00668FCD /* LocationManager.swift */; };
-		31324FE3262E899200668FCD /* UserDefaultsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31324FE2262E899200668FCD /* UserDefaultsHelper.swift */; };
+		31405F602632DDDE00B4993B /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31405F5F2632DDDE00B4993B /* String+Extension.swift */; };
+		31405F642632DE0C00B4993B /* CustomError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31405F632632DE0C00B4993B /* CustomError.swift */; };
+		31CDEF0A2630253E00F49BE4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 31CDEF062630252F00F49BE4 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		162532258D6348DF759529E0 /* Pods-TrackerTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TrackerTest.debug.xcconfig"; path = "Target Support Files/Pods-TrackerTest/Pods-TrackerTest.debug.xcconfig"; sourceTree = "<group>"; };
-		310E9983262E974E00C7BB99 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		310B37A02632E94F00E739B9 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
+		310B37A42632EF3C00E739B9 /* LocationData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationData.swift; sourceTree = "<group>"; };
+		310B37A7263673B400E739B9 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		310B37AB2636745F00E739B9 /* BluetoothViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothViewController.swift; sourceTree = "<group>"; };
+		310B37AE2636746D00E739B9 /* HealthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthViewController.swift; sourceTree = "<group>"; };
 		310E9989262EA04E00C7BB99 /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
 		310E998C262EA67D00C7BB99 /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 		31324FBE262980A000668FCD /* TrackerTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TrackerTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		31324FC1262980A000668FCD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		31324FC3262980A000668FCD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		31324FC5262980A000668FCD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		31324FC5262980A000668FCD /* LocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewController.swift; sourceTree = "<group>"; };
 		31324FCA262980B100668FCD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		31324FCD262980B100668FCD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		31324FCF262980B100668FCD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		31324FD82629882B00668FCD /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		31324FDC262D512C00668FCD /* TrackerTest.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TrackerTest.entitlements; sourceTree = "<group>"; };
-		31324FE2262E899200668FCD /* UserDefaultsHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsHelper.swift; sourceTree = "<group>"; };
+		31405F5F2632DDDE00B4993B /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
+		31405F632632DE0C00B4993B /* CustomError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomError.swift; sourceTree = "<group>"; };
+		31CDEF062630252F00F49BE4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		992689903A5C5B2C77C3A980 /* Pods_TrackerTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TrackerTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE3675C4EF8CE74E013D6B06 /* Pods-TrackerTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TrackerTest.release.xcconfig"; path = "Target Support Files/Pods-TrackerTest/Pods-TrackerTest.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -60,6 +72,14 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		310B37A32632EF3200E739B9 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				310B37A42632EF3C00E739B9 /* LocationData.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		310E998F262EA84600C7BB99 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
@@ -67,6 +87,21 @@
 				310E9989262EA04E00C7BB99 /* FirebaseManager.swift */,
 			);
 			path = Managers;
+			sourceTree = "<group>";
+		};
+		312294AA264276710018B8B7 /* BluetoothTracker */ = {
+			isa = PBXGroup;
+			children = (
+				310B37AB2636745F00E739B9 /* BluetoothViewController.swift */,
+			);
+			path = BluetoothTracker;
+			sourceTree = "<group>";
+		};
+		312294AB2643F1510018B8B7 /* HealthTracker */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = HealthTracker;
 			sourceTree = "<group>";
 		};
 		31324FB5262980A000668FCD = {
@@ -90,19 +125,58 @@
 		31324FC0262980A000668FCD /* TrackerTest */ = {
 			isa = PBXGroup;
 			children = (
-				310E998F262EA84600C7BB99 /* Managers */,
+				312294AA264276710018B8B7 /* BluetoothTracker */,
+				31405F592632DD9000B4993B /* LocationTracker */,
+				312294AB2643F1510018B8B7 /* HealthTracker */,
 				31324FDC262D512C00668FCD /* TrackerTest.entitlements */,
 				31324FC1262980A000668FCD /* AppDelegate.swift */,
-				310E998C262EA67D00C7BB99 /* Helpers.swift */,
-				31324FE2262E899200668FCD /* UserDefaultsHelper.swift */,
 				31324FC3262980A000668FCD /* SceneDelegate.swift */,
-				31324FC5262980A000668FCD /* ViewController.swift */,
-				310E9983262E974E00C7BB99 /* GoogleService-Info.plist */,
+				310B37A7263673B400E739B9 /* TabBarController.swift */,
+				310B37AE2636746D00E739B9 /* HealthViewController.swift */,
+				31CDEF062630252F00F49BE4 /* GoogleService-Info.plist */,
 				31324FCA262980B100668FCD /* Assets.xcassets */,
 				31324FCC262980B100668FCD /* LaunchScreen.storyboard */,
 				31324FCF262980B100668FCD /* Info.plist */,
 			);
 			path = TrackerTest;
+			sourceTree = "<group>";
+		};
+		31405F592632DD9000B4993B /* LocationTracker */ = {
+			isa = PBXGroup;
+			children = (
+				310B37A32632EF3200E739B9 /* Models */,
+				31405F5E2632DDD000B4993B /* Extensions */,
+				31405F5C2632DDC300B4993B /* Tools */,
+				31405F5B2632DDB100B4993B /* UI */,
+				310E998F262EA84600C7BB99 /* Managers */,
+			);
+			path = LocationTracker;
+			sourceTree = "<group>";
+		};
+		31405F5B2632DDB100B4993B /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				31324FC5262980A000668FCD /* LocationViewController.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		31405F5C2632DDC300B4993B /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				310E998C262EA67D00C7BB99 /* Helpers.swift */,
+				31405F632632DE0C00B4993B /* CustomError.swift */,
+			);
+			path = Tools;
+			sourceTree = "<group>";
+		};
+		31405F5E2632DDD000B4993B /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				31405F5F2632DDDE00B4993B /* String+Extension.swift */,
+				310B37A02632E94F00E739B9 /* UIViewController+Extension.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		8CDEAC199B013A8E8CDC9A99 /* Frameworks */ = {
@@ -174,7 +248,7 @@
 			files = (
 				31324FCE262980B100668FCD /* LaunchScreen.storyboard in Resources */,
 				31324FCB262980B100668FCD /* Assets.xcassets in Resources */,
-				310E9987262E9E4300C7BB99 /* GoogleService-Info.plist in Resources */,
+				31CDEF0A2630253E00F49BE4 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -227,12 +301,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				310B37A12632E94F00E739B9 /* UIViewController+Extension.swift in Sources */,
 				310E998A262EA04E00C7BB99 /* FirebaseManager.swift in Sources */,
+				310B37A8263673B400E739B9 /* TabBarController.swift in Sources */,
+				31405F642632DE0C00B4993B /* CustomError.swift in Sources */,
+				31405F602632DDDE00B4993B /* String+Extension.swift in Sources */,
+				310B37A52632EF3C00E739B9 /* LocationData.swift in Sources */,
 				310E998D262EA67E00C7BB99 /* Helpers.swift in Sources */,
-				31324FE3262E899200668FCD /* UserDefaultsHelper.swift in Sources */,
 				31324FD92629882B00668FCD /* LocationManager.swift in Sources */,
-				31324FC6262980A000668FCD /* ViewController.swift in Sources */,
+				31324FC6262980A000668FCD /* LocationViewController.swift in Sources */,
+				310B37AC2636745F00E739B9 /* BluetoothViewController.swift in Sources */,
 				31324FC2262980A000668FCD /* AppDelegate.swift in Sources */,
+				310B37AF2636746D00E739B9 /* HealthViewController.swift in Sources */,
 				31324FC4262980A000668FCD /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
