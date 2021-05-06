@@ -20,7 +20,7 @@ class LocationViewController: UIViewController {
         LocationManager.shared.locationDelegate = self
         fetchData()
         
-        title = "TrackerTest"
+        title = "Location Tracker"
         view.backgroundColor = .white
         setupUI()
     }

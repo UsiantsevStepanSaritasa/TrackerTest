@@ -16,6 +16,11 @@ class BluetoothViewController: UIViewController, CBCentralManagerDelegate, CBPer
         let rssi: NSNumber
         let date: Date
     }
+    
+    private struct LastPeripheralNotification: Equatable {
+        let id: UUID
+        var date: Date
+    }
 
     private lazy var tableView: UITableView = {
         let tableView = UITableView(frame: CGRect.zero, style: .plain)
@@ -30,20 +35,32 @@ class BluetoothViewController: UIViewController, CBCentralManagerDelegate, CBPer
 
     private var timer: Timer?
     private var peripherals: [Peripheral] = []
+    private var lastNotifications: [LastPeripheralNotification] = []
     private var characteristic: CBMutableCharacteristic?
     private var subscribedCentrals = [CBCharacteristic:[CBCentral]]()
-
+    private var advertisingMessage: String?
+    
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+        
+        print("Class INITed at: \(Date().timeIntervalSince1970)")
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound]) { (_, _) in
-
-        }
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound]) { (_, _) in }
 
         view.addSubview(tableView)
-
+        
+        title = "Bluetooth Tracker"
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(showAdvertisingAlert))
+        
         startAdvertisingIfPossible()
-//        peripheralManager.startAdvertising([CBAdvertisementDataServiceUUIDsKey : [uuid]])
         print("STATE central: ", centralManager.state.rawValue)
         print("STATE peripheral: ", peripheralManager.state.rawValue)
         centralManager.delegate = self
@@ -76,6 +93,26 @@ class BluetoothViewController: UIViewController, CBCentralManagerDelegate, CBPer
         }
     }
 
+    @objc private func showAdvertisingAlert() {
+        let alertController = UIAlertController(title: "Enter advertising message", message: nil, preferredStyle: .alert)
+        alertController.addTextField()
+        
+        let submitAction = UIAlertAction(title: "OK", style: .default) { [weak self] _ in
+            guard let self = self, let textField = alertController.textFields?[0] else { return }
+            
+            self.advertisingMessage = textField.text
+            
+            self.peripheralManager.stopAdvertising()
+        }
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        
+        alertController.addAction(submitAction)
+        alertController.addAction(cancelAction)
+        
+        present(alertController, animated: true, completion: nil)
+    }
+    
     @objc private func didBecomeActiveNotification(_ notification: Notification) {
         startTimer()
     }
@@ -83,7 +120,6 @@ class BluetoothViewController: UIViewController, CBCentralManagerDelegate, CBPer
     @objc private func didEnterBackgroundNotification(_ notification: Notification) {
         stopTimer()
         startScanIfPossible()
-//        startAdvertisingIfPossible()
     }
 
     private func startTimer() {
@@ -100,13 +136,19 @@ class BluetoothViewController: UIViewController, CBCentralManagerDelegate, CBPer
         guard peripheralManager.state == .poweredOn, !peripheralManager.isAdvertising else {
             return
         }
+
+        guard let message = advertisingMessage else {
+            peripheralManager.startAdvertising(nil)
+            
+            return
+        }
         
-        peripheralManager.startAdvertising([CBAdvertisementDataServiceUUIDsKey : [uuid]])
+        peripheralManager.startAdvertising([CBAdvertisementDataLocalNameKey : message])
     }
 
     @objc private func tick(_ sender: Timer) {
         startScanIfPossible()
-//        startAdvertisingIfPossible()
+        startAdvertisingIfPossible()
         removeStalePeripherals()
     }
 
@@ -127,24 +169,47 @@ class BluetoothViewController: UIViewController, CBCentralManagerDelegate, CBPer
     }
 
     private func showNotificationIfNeeded(peripheral: CBPeripheral) {
-        if UIApplication.shared.applicationState == .background {
-            let content = UNMutableNotificationContent()
-            content.title = "New Device Found"
-            content.body = peripheral.name ?? "<unknown>"
-
-            let uuidString = UUID().uuidString
-            let request = UNNotificationRequest(identifier: uuidString,
-                        content: content, trigger: nil)
-
-            // Schedule the request with the system.
-            let notificationCenter = UNUserNotificationCenter.current()
-            notificationCenter.add(request) { (error) in
-               if let error = error {
-                  print("Failed to add notification \(error)")
-               }
+        if
+            let lastNotification = lastNotifications.filter({ $0.id == peripheral.identifier }).first,
+            lastNotification.date.timeIntervalSince1970 < (Date().timeIntervalSince1970 - 300),
+            UIApplication.shared.applicationState == .background
+        {
+            print("Entered UPDATE existing notification")
+            setupNotification(peripheral: peripheral)
+            lastNotifications.removeAll { notification in
+                notification.id == peripheral.identifier
+            }
+            lastNotifications.append(LastPeripheralNotification(id: peripheral.identifier, date: Date()))
+            
+        } else if
+            !lastNotifications.contains(where: { lastNotification in
+                lastNotification.id == peripheral.identifier                
+            }),
+            UIApplication.shared.applicationState == .background
+        {
+            setupNotification(peripheral: peripheral)
+            lastNotifications.append(LastPeripheralNotification(id: peripheral.identifier, date: Date()))
+            print("Entered CREATE new notification")
+        }
+    }
+    
+    private func setupNotification(peripheral: CBPeripheral) {
+        let content = UNMutableNotificationContent()
+        content.title = "New Device Found"
+        content.body = peripheral.name ?? "<unknown>"
+        
+        let uuidString = UUID().uuidString
+        let request = UNNotificationRequest(identifier: uuidString,
+                                            content: content, trigger: nil)
+        
+        // Schedule the request with the system.
+        let notificationCenter = UNUserNotificationCenter.current()
+        print("Notification has been sent")
+        notificationCenter.add(request) { (error) in
+            if let error = error {
+                print("Failed to add notification \(error)")
             }
         }
-
     }
 
     // MARK: - UITableViewDelegate, UITableViewDataSource
@@ -195,18 +260,6 @@ class BluetoothViewController: UIViewController, CBCentralManagerDelegate, CBPer
         centrals.append(central)
         self.subscribedCentrals[characteristic] = centrals
     }
-    
-//    func peripheralManager(_ peripheral: CBPeripheralManager, didPublishL2CAPChannel PSM: CBL2CAPPSM, error: Error?) {
-//        if let error = error {
-//            print("Error publishing channel: \(error.localizedDescription)")
-//            return
-//        }
-//        print("Published channel \(PSM)")
-//        
-//        self.characteristic?.value = PSM.data
-//        
-//        self.peripheralManager.updateValue(PSM.data, for: self.characteristic!, onSubscribedCentrals: self.subscribedCentrals[self.characteristic!])
-//    }
 
     func peripheralManager(_ peripheral: CBPeripheralManager, didAdd service: CBService, error: Error?) {
         // pass any data
@@ -218,28 +271,10 @@ class BluetoothViewController: UIViewController, CBCentralManagerDelegate, CBPer
             print("ERROR BLUETOOTH: ", error)
         }
     }
-
-//    public func peripheralManager(_ peripheral: CBPeripheralManager, didReceiveRead request: CBATTRequest) {
-//        if let characteristic = self.characteristic {
-//            request.value = characteristic.value
-//            self.peripheralManager.respond(to: request, withResult: .success)
-//        } else {
-//            self.peripheralManager.respond(to: request, withResult: .unlikelyError)
-//        }
-//    }
     
-//    public func peripheralManager(_ peripheral: CBPeripheralManager, didOpen channel: CBL2CAPChannel?, error: Error?) {
-//        if let error = error {
-//            print("Error opening channel: \(error.localizedDescription)")
-//            return
-//        }
-//        if let channel = channel {
-////            let connection = L2CapPeripheralConnection(channel: channel)
-////            self.connectionHandler(connection)
-//            print(channel)
-//        }
-//    }
-
+    deinit {
+        print("Class has DEINITed at: \(Date().timeIntervalSince1970)")
+    }
 }
 
 extension UInt16 {
@@ -258,16 +293,3 @@ extension Data {
         }
     }
 }
-
-//class L2CapPeripheralConnection: L2CapInternalConnection {
-//    init(channel: CBL2CAPChannel) {
-//        super.init()
-//        self.channel = channel
-//        channel.inputStream.delegate = self
-//        channel.outputStream.delegate = self
-//        channel.inputStream.schedule(in: RunLoop.main, forMode: .default)
-//        channel.outputStream.schedule(in: RunLoop.main, forMode: .default)
-//        channel.inputStream.open()
-//        channel.outputStream.open()
-//    }
-//}

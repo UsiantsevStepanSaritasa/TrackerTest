@@ -97,6 +97,13 @@
 			path = BluetoothTracker;
 			sourceTree = "<group>";
 		};
+		312294AB2643F1510018B8B7 /* HealthTracker */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = HealthTracker;
+			sourceTree = "<group>";
+		};
 		31324FB5262980A000668FCD = {
 			isa = PBXGroup;
 			children = (
@@ -120,6 +127,7 @@
 			children = (
 				312294AA264276710018B8B7 /* BluetoothTracker */,
 				31405F592632DD9000B4993B /* LocationTracker */,
+				312294AB2643F1510018B8B7 /* HealthTracker */,
 				31324FDC262D512C00668FCD /* TrackerTest.entitlements */,
 				31324FC1262980A000668FCD /* AppDelegate.swift */,
 				31324FC3262980A000668FCD /* SceneDelegate.swift */,
