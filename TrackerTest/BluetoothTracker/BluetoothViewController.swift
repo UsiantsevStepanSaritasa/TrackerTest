@@ -43,7 +43,7 @@ class BluetoothViewController: UIViewController, CBCentralManagerDelegate, CBPer
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         
-        print("Class INITed at: \(Date().timeIntervalSince1970)")
+//        print("Class INITed at: \(Date().timeIntervalSince1970)")
     }
     
     required init?(coder: NSCoder) {
@@ -61,8 +61,8 @@ class BluetoothViewController: UIViewController, CBCentralManagerDelegate, CBPer
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(showAdvertisingAlert))
         
         startAdvertisingIfPossible()
-        print("STATE central: ", centralManager.state.rawValue)
-        print("STATE peripheral: ", peripheralManager.state.rawValue)
+//        print("STATE central: ", centralManager.state.rawValue)
+//        print("STATE peripheral: ", peripheralManager.state.rawValue)
         centralManager.delegate = self
         peripheralManager.delegate = self
 
@@ -174,23 +174,26 @@ class BluetoothViewController: UIViewController, CBCentralManagerDelegate, CBPer
             lastNotification.date.timeIntervalSince1970 < (Date().timeIntervalSince1970 - 300),
             UIApplication.shared.applicationState == .background
         {
-            print("Entered UPDATE existing notification")
+//            print("Entered UPDATE existing notification")
             setupNotification(peripheral: peripheral)
             lastNotifications.removeAll { notification in
                 notification.id == peripheral.identifier
             }
             lastNotifications.append(LastPeripheralNotification(id: peripheral.identifier, date: Date()))
-            
+
         } else if
             !lastNotifications.contains(where: { lastNotification in
-                lastNotification.id == peripheral.identifier                
+                lastNotification.id == peripheral.identifier
             }),
             UIApplication.shared.applicationState == .background
         {
             setupNotification(peripheral: peripheral)
             lastNotifications.append(LastPeripheralNotification(id: peripheral.identifier, date: Date()))
-            print("Entered CREATE new notification")
+//            print("Entered CREATE new notification")
         }
+//        if UIApplication.shared.applicationState == .background {
+//            setupNotification(peripheral: peripheral)
+//        }
     }
     
     private func setupNotification(peripheral: CBPeripheral) {
@@ -204,7 +207,7 @@ class BluetoothViewController: UIViewController, CBCentralManagerDelegate, CBPer
         
         // Schedule the request with the system.
         let notificationCenter = UNUserNotificationCenter.current()
-        print("Notification has been sent")
+//        print("Notification has been sent")
         notificationCenter.add(request) { (error) in
             if let error = error {
                 print("Failed to add notification \(error)")
@@ -242,6 +245,7 @@ class BluetoothViewController: UIViewController, CBCentralManagerDelegate, CBPer
     }
 
     func centralManager(_ central: CBCentralManager, didDiscover peripheral: CBPeripheral, advertisementData: [String : Any], rssi RSSI: NSNumber) {
+//        print("Discovered a device that's NEARBY")
         updatePeripheral(peripheral, rssi: RSSI)
         showNotificationIfNeeded(peripheral: peripheral)
     }
@@ -263,17 +267,18 @@ class BluetoothViewController: UIViewController, CBCentralManagerDelegate, CBPer
 
     func peripheralManager(_ peripheral: CBPeripheralManager, didAdd service: CBService, error: Error?) {
         // pass any data
+//        print("Start ADV")
         peripheralManager.startAdvertising([CBAdvertisementDataServiceUUIDsKey : [uuid]])
     }
 
     func peripheralManagerDidStartAdvertising(_ peripheral: CBPeripheralManager, error: Error?) {
         if let error = error {
-            print("ERROR BLUETOOTH: ", error)
+//            print("ERROR BLUETOOTH: ", error)
         }
     }
     
     deinit {
-        print("Class has DEINITed at: \(Date().timeIntervalSince1970)")
+//        print("Class has DEINITed at: \(Date().timeIntervalSince1970)")
     }
 }
 

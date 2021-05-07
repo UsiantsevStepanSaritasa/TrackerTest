@@ -22,7 +22,7 @@ final class TabBarController: UITabBarController {
 
         let locationViewController = UINavigationController(rootViewController: LocationViewController())
         let bluetoothViewController = UINavigationController(rootViewController: BluetoothViewController())
-        let healthViewController = HealthViewController()
+        let healthViewController = UINavigationController(rootViewController: HealthViewController())
 
         viewControllers = [locationViewController, bluetoothViewController, healthViewController]
         locationViewController.tabBarItem = UITabBarItem(

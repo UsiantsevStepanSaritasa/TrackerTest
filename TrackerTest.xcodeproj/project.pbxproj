@@ -12,9 +12,14 @@
 		310B37A52632EF3C00E739B9 /* LocationData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 310B37A42632EF3C00E739B9 /* LocationData.swift */; };
 		310B37A8263673B400E739B9 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 310B37A7263673B400E739B9 /* TabBarController.swift */; };
 		310B37AC2636745F00E739B9 /* BluetoothViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 310B37AB2636745F00E739B9 /* BluetoothViewController.swift */; };
-		310B37AF2636746D00E739B9 /* HealthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 310B37AE2636746D00E739B9 /* HealthViewController.swift */; };
 		310E998A262EA04E00C7BB99 /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 310E9989262EA04E00C7BB99 /* FirebaseManager.swift */; };
 		310E998D262EA67E00C7BB99 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 310E998C262EA67D00C7BB99 /* Helpers.swift */; };
+		312294AF2643F2710018B8B7 /* AlertPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 312294AD2643F2710018B8B7 /* AlertPresenter.swift */; };
+		312294B02643F2710018B8B7 /* HKStoreHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 312294AE2643F2710018B8B7 /* HKStoreHelper.swift */; };
+		312294B32643F2850018B8B7 /* HealthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 312294B22643F2850018B8B7 /* HealthViewController.swift */; };
+		312294B72643F29A0018B8B7 /* HKBiologicalSex+StringRepresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 312294B52643F29A0018B8B7 /* HKBiologicalSex+StringRepresentation.swift */; };
+		312294B82643F29A0018B8B7 /* HKBloodType+StringRepresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 312294B62643F29A0018B8B7 /* HKBloodType+StringRepresentation.swift */; };
+		312294BA2643F35C0018B8B7 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 312294B92643F35C0018B8B7 /* HealthKit.framework */; };
 		31324FC2262980A000668FCD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31324FC1262980A000668FCD /* AppDelegate.swift */; };
 		31324FC4262980A000668FCD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31324FC3262980A000668FCD /* SceneDelegate.swift */; };
 		31324FC6262980A000668FCD /* LocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31324FC5262980A000668FCD /* LocationViewController.swift */; };
@@ -32,9 +37,14 @@
 		310B37A42632EF3C00E739B9 /* LocationData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationData.swift; sourceTree = "<group>"; };
 		310B37A7263673B400E739B9 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		310B37AB2636745F00E739B9 /* BluetoothViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothViewController.swift; sourceTree = "<group>"; };
-		310B37AE2636746D00E739B9 /* HealthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthViewController.swift; sourceTree = "<group>"; };
 		310E9989262EA04E00C7BB99 /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
 		310E998C262EA67D00C7BB99 /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
+		312294AD2643F2710018B8B7 /* AlertPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertPresenter.swift; sourceTree = "<group>"; };
+		312294AE2643F2710018B8B7 /* HKStoreHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HKStoreHelper.swift; sourceTree = "<group>"; };
+		312294B22643F2850018B8B7 /* HealthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HealthViewController.swift; sourceTree = "<group>"; };
+		312294B52643F29A0018B8B7 /* HKBiologicalSex+StringRepresentation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "HKBiologicalSex+StringRepresentation.swift"; sourceTree = "<group>"; };
+		312294B62643F29A0018B8B7 /* HKBloodType+StringRepresentation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "HKBloodType+StringRepresentation.swift"; sourceTree = "<group>"; };
+		312294B92643F35C0018B8B7 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		31324FBE262980A000668FCD /* TrackerTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TrackerTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		31324FC1262980A000668FCD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		31324FC3262980A000668FCD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -57,6 +67,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0EE79309E2188D3747E308C9 /* Pods_TrackerTest.framework in Frameworks */,
+				312294BA2643F35C0018B8B7 /* HealthKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -100,8 +111,37 @@
 		312294AB2643F1510018B8B7 /* HealthTracker */ = {
 			isa = PBXGroup;
 			children = (
+				312294B42643F28E0018B8B7 /* Extensions */,
+				312294B12643F27A0018B8B7 /* Main */,
+				312294AC2643F2580018B8B7 /* Helpers */,
 			);
 			path = HealthTracker;
+			sourceTree = "<group>";
+		};
+		312294AC2643F2580018B8B7 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				312294AD2643F2710018B8B7 /* AlertPresenter.swift */,
+				312294AE2643F2710018B8B7 /* HKStoreHelper.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		312294B12643F27A0018B8B7 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				312294B22643F2850018B8B7 /* HealthViewController.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		312294B42643F28E0018B8B7 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				312294B52643F29A0018B8B7 /* HKBiologicalSex+StringRepresentation.swift */,
+				312294B62643F29A0018B8B7 /* HKBloodType+StringRepresentation.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		31324FB5262980A000668FCD = {
@@ -132,7 +172,6 @@
 				31324FC1262980A000668FCD /* AppDelegate.swift */,
 				31324FC3262980A000668FCD /* SceneDelegate.swift */,
 				310B37A7263673B400E739B9 /* TabBarController.swift */,
-				310B37AE2636746D00E739B9 /* HealthViewController.swift */,
 				31CDEF062630252F00F49BE4 /* GoogleService-Info.plist */,
 				31324FCA262980B100668FCD /* Assets.xcassets */,
 				31324FCC262980B100668FCD /* LaunchScreen.storyboard */,
@@ -182,6 +221,7 @@
 		8CDEAC199B013A8E8CDC9A99 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				312294B92643F35C0018B8B7 /* HealthKit.framework */,
 				992689903A5C5B2C77C3A980 /* Pods_TrackerTest.framework */,
 			);
 			name = Frameworks;
@@ -302,17 +342,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				310B37A12632E94F00E739B9 /* UIViewController+Extension.swift in Sources */,
+				312294AF2643F2710018B8B7 /* AlertPresenter.swift in Sources */,
+				312294B72643F29A0018B8B7 /* HKBiologicalSex+StringRepresentation.swift in Sources */,
 				310E998A262EA04E00C7BB99 /* FirebaseManager.swift in Sources */,
 				310B37A8263673B400E739B9 /* TabBarController.swift in Sources */,
 				31405F642632DE0C00B4993B /* CustomError.swift in Sources */,
 				31405F602632DDDE00B4993B /* String+Extension.swift in Sources */,
+				312294B82643F29A0018B8B7 /* HKBloodType+StringRepresentation.swift in Sources */,
 				310B37A52632EF3C00E739B9 /* LocationData.swift in Sources */,
 				310E998D262EA67E00C7BB99 /* Helpers.swift in Sources */,
+				312294B02643F2710018B8B7 /* HKStoreHelper.swift in Sources */,
 				31324FD92629882B00668FCD /* LocationManager.swift in Sources */,
 				31324FC6262980A000668FCD /* LocationViewController.swift in Sources */,
 				310B37AC2636745F00E739B9 /* BluetoothViewController.swift in Sources */,
 				31324FC2262980A000668FCD /* AppDelegate.swift in Sources */,
-				310B37AF2636746D00E739B9 /* HealthViewController.swift in Sources */,
+				312294B32643F2850018B8B7 /* HealthViewController.swift in Sources */,
 				31324FC4262980A000668FCD /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -454,15 +498,17 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = TrackerTest/TrackerTest.entitlements;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 6H763A2399;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = 97CJYDC5AL;
 				INFOPLIST_FILE = TrackerTest/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.saritasa.TrackerTest;
+				PRODUCT_BUNDLE_IDENTIFIER = com.saritasa.enterprise.datapurveyorv1.ios;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "Data Purveyor V1 prototype";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -475,15 +521,17 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = TrackerTest/TrackerTest.entitlements;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 6H763A2399;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = 97CJYDC5AL;
 				INFOPLIST_FILE = TrackerTest/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.saritasa.TrackerTest;
+				PRODUCT_BUNDLE_IDENTIFIER = com.saritasa.enterprise.datapurveyorv1.ios;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "Data Purveyor V1 prototype";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
